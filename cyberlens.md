@@ -1,6 +1,6 @@
-Platform: TryHackMe
-Room: CyberLens
-URL: https://tryhackme.com/r/room/cyberlensp6
+Platform: TryHackMe\
+Room: CyberLens\
+URL: https://tryhackme.com/r/room/cyberlensp6\
 Date: June 5, 2024
 
 # Notes
