@@ -4,8 +4,8 @@ URL: https://tryhackme.com/r/room/cyberlensp6 \
 Date: June 5, 2024
 
 # Notes
-10:21 am
-Loaded target machine
+10:21 am\
+Loaded target machine\
 IP 10.10.234.94
 
 added cyberlens.thm to hosts file (mentioned in the room description)\
@@ -73,7 +73,7 @@ Navigated to C:\Users. Found 2 users, Administrator and CyberLens
 
 Navigated to C:\Users\CyberLens\Desktop and found a file named "user.txt"
 
-10:48 am
+10:48 am\
 Obtained first flag\
 ![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/8c3cebbe-b8a0-4232-8f92-bfc673e59686)
 
@@ -104,7 +104,7 @@ Received shell as nt authority\system\ (got root)\
 
 Navigated to C:\Users\Administrator\Desktop. Found admin.txt file
 
-11:05 am
+11:05 am\
 Obtained root flag from admin.txt file\
 ![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/9e61b498-eaea-43b9-8fef-07c6872d0f6b)
 
