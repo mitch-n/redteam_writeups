@@ -69,11 +69,20 @@ Exploit succeeded, established meterpreter shell
 
 `shell` opened shell. `powershell` opened powershell shell
 
-Navigated to C:/Users. Found 2 users, Administrator and CyberLens
+Navigated to C:\Users. Found 2 users, Administrator and CyberLens
 
 Navigated to C:\Users\CyberLens\Desktop and found a file named "user.txt"
 
-Obtained first flag
+10:48 am
+Obtained first flag\
 ![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/8c3cebbe-b8a0-4232-8f92-bfc673e59686)
 
+Navigated to C:\Users\CyberLens\Documents\Management and found file `CyberLens-Management.txt`
 
+File appears to contain credentials:
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/6da3b7e0-1e1f-4a9c-a498-be60ac00cad9)
+
+CyberLens
+HackSmarter123
+
+Checked MSI policies
