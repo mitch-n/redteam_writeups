@@ -40,6 +40,25 @@ Navigated to http://expose.thm:1337 in firefox browser. found a header of "EXPOS
 
 Page sourcecode shows that the header is the only thing on the page, network tab shows no other web requests were made.
 
+opened burpsuite and started proxy
+
+Started Directory fuzzing `ffuf -u http://expose.thm:1337/FUZZ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt`
+
+Fuzzer identified 3 directories. /admin, /phpmyadmin, /javascript
+
+http://expose.thm:1337/admin \
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/f467cc18-8987-44ea-9cae-ddc0936e40c4)
+
+
+http://expose.thm:1337/phpmyadmin \
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/3d06a7b3-afff-44a3-811b-ee3c2f03518f)
+
+bruteforcing phpmyadmin login with user root...
+
+time: 9:44 am
+
+
+
 
 
 
