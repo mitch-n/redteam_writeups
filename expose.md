@@ -29,4 +29,18 @@ MAC Address: 02:3B:23:EE:C4:FF (Unknown)
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
+`ftp expose.thm` \
+Signed in with Anonynmous and no password
+
+FTP server appears to be empty. I am at the root directory and there are no files or folders, including hidden files/folders \
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/ab6f4987-9a1b-4470-8761-6590e708ee25)
+
+Navigated to http://expose.thm:1337 in firefox browser. found a header of "EXPOSED" \
+![image](https://github.com/mitch-n/redteam_writeups/assets/30005736/16c31d13-e099-4bcf-8198-be6d1a0e5dcd)
+
+Page sourcecode shows that the header is the only thing on the page, network tab shows no other web requests were made.
+
+
+
+
 
